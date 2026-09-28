@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cronograma ADS</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- DATA -->
+    <header class="Data">
+        <div class="data-label">HOJE</div>
+
+        <h1 id="InforData">
+            28/09/26
+        </h1>
+
+        <div id="diaSemana" class="dia-semana">
+            Segunda-feira
+        </div>
+    </header>
+
+
+    <!-- PAINEL PRINCIPAL -->
+    <main class="MenuPrincipal">
+
+        <section class="Conteudo">
+
+    <div class="cabecalho-conteudo">
+        <span id="tituloDia">Aulas de hoje</span>
+
+        <span id="contadorAulas" class="contador-aulas">
+            0 aulas
+        </span>
+    </div>
+
+    <div
+        id="listaAulas"
+        class="lista-aulas"
+    ></div>
+
+    <!-- Aparece quando existem aulas -->
+    <div
+        id="mensagemFinal"
+        class="mensagem-final"
+        hidden
+    >
+        Aproveite o restante do dia!
+    </div>
+
+    <!-- Aparece somente quando não existem aulas -->
+    <div
+        id="semAulas"
+        class="sem-aulas"
+        hidden
+    >
+        <div class="sem-aulas-icone">
+            ✓
+        </div>
+
+        <strong>acabou azaula</strong>
+
+        <span>
+            Aproveite o restante do dia.
+        </span>
+    </div>
+
+</section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
