@@ -127,14 +127,38 @@ body {
 @keyframes pulsar { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.35); opacity: 0.55; } 100% { transform: scale(1); opacity: 1; } }
 
 @media (max-width: 760px) {
-    body { padding: 20px 10px 30px; }
-    .Data { width: 220px; margin-bottom: 20px; }
-    .area-cronograma { width: 100%; grid-template-columns: 1fr; gap: 18px; }
-    .MenuPrincipal { grid-row: 1; }
-    .controle-anterior, .controle-proximo { flex-direction: row; justify-content: center; margin-top: 0; gap: 12px; transform: none; }
-    .controle-anterior { grid-row: 2; }
-    .controle-proximo { grid-row: 3; }
-    .controle-dia p { min-height: auto; font-size: 11px; }
+    /* Transformamos a tela inteira em um Grid de 3 colunas e 2 linhas */
+    body { 
+        padding: 20px 5px 30px; 
+        display: grid;
+        grid-template-columns: 45px minmax(200px, 220px) 45px;
+        grid-template-rows: auto auto;
+        gap: 15px 8px; 
+        justify-content: center;
+        align-items: center; 
+    }
+    
+    .Data { 
+        width: 100%; margin: 0; 
+        grid-column: 2; grid-row: 1; 
+    }
+
+    /* O PULO DO GATO: Faz a ".area-cronograma" deixar de ser um obstáculo no layout, 
+       permitindo que os botões subam para o grid do body e fiquem na Linha 1 */
+    .area-cronograma { display: contents; }
+
+    .controle-anterior { grid-column: 1; grid-row: 1; margin: 0; transform: none; justify-self: center; }
+    .controle-proximo { grid-column: 3; grid-row: 1; margin: 0; transform: none; justify-self: center; }
+    
+    /* O painel principal fica na Linha 2, ocupando todas as 3 colunas de largura */
+    .MenuPrincipal { 
+        grid-column: 1 / 4; grid-row: 2; 
+        width: 100%; max-width: 340px; justify-self: center; 
+    }
+
+    /* Esconde os textos conforme sua ideia */
+    .controle-dia p { display: none; }
+    
     .botao-navegacao { width: 42px; height: 42px; font-size: 28px; }
     .materia { font-size: 14px; }
     .indicador { font-size: 8px; }
